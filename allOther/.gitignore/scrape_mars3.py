@@ -23,8 +23,13 @@ def scrape():
     listings = mongo.db.listings
     listings_data = scrape_craigslist.scrape()
     # listings.update({}, listings_data, upsert=True)
-    for row in listings_data:
-        listings.update({'headline' : row['headline']}, row, upsert=True)
+    # for row in listings_data:
+    #     listings.update({'headline' : row['headline']}, row, upsert=True)
+    # Verify results:
+    results = db.fruits_db.find()
+    for result in results:
+        print(result)
+    
     return redirect("/", code=302)
 
 

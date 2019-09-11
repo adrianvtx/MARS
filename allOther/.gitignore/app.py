@@ -1,18 +1,13 @@
-from flask import Flask, render_template,request,redirect,url_for # For flask implementation
-from bson import ObjectId # For ObjectId to work
-from pymongo import MongoClient
+from flask import Flask, render_template, redirect
+import pymongo
 import scrape_mars
-import os
-
 
 app = Flask(__name__)
 
-output_dict = {}
 # Use flask_pymongo to set up mongo connection
-MongoClient("mongodb://127.0.0.0:27017")# = "mongoclient://localhost:27017/output_dict.mymongodb"
-db = output_dict
-
-# mongo = pymongo(app)
+app.config["MONGO_URI"] = "mongodb://localhost:27017/output_dict"
+mongo = pymongo(app)
+client = pymongo.MongoClient(conn)
 
 # Or set inline
 # mongo = PyMongo(app, uri="mongodb://localhost:27017/craigslist_app")

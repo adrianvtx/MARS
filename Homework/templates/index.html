@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Hot Finds</title>
+  <title>MARS ATTACKS</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
@@ -14,18 +14,24 @@
   <div class="container">
 
     <div class="jumbotron text-center">
-      <h1>Hot Finds On Craigslist</h1>
-      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Find An Awesome Deal!</a></p>
+      <h1>Scaper NO SCRAPING</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">SCRAPE THAT HOMEWORK</a></p>
     </div>
 
     <!-- Craigslist Listings -->
-    {% for item in listings %}
-    <div class="row" id="craiglist-listings">
+    {% for renVar in renVars %}
+    <div class="row" id="output_dict">
       <div class="col-md-12">
-        <h4 class="heading">{{item.price}} {{item.headline}}</h4>
-        <small>{{item.hood}}</small>
+        <h4 class="heading">{{renVar[0]}} {{renVar.headline}}</h4>
+        <small>{{renVar.hood}}</small>
       </div>
     </div>
+    {% endfor %}
+
+    <!-- Loop through the dictionary -->
+    
+    {% for renVar in renVars %}
+    <li style="color:blue">{{loop.index}} {{ renVars.name }} who is a {{ renVars.type }}</li>
     {% endfor %}
   </div>
 </body>
