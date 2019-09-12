@@ -1,14 +1,17 @@
 import os
+import string
 import sys
 
 import pymongo
 import pymongo.mongo_client
 from bson import ObjectId  # For ObjectId to work
-# from eve.io.mongo.flask_pymongo import PyMongo
+from eve.io.mongo.flask_pymongo import PyMongo
 from flask import Flask, redirect, render_template, request, url_for
 from flask_pymongo import PyMongo
+from matplotlib.patheffects import PathEffectRenderer
 from pymongo import MongoClient
 from pymongo.collection import Collection
+from werkzeug.debug.tbtools import render_console_html
 
 import scrape_mars
 
@@ -22,33 +25,26 @@ mongo = PyMongo(app, uri="mongodb://localhost:27017/mars_db")
 # db = mongo.mars_db
 # collection = db.scrape
 output_dict = {}
+output_dict["collection"] = "Please Press Scrape"
 
-@app.route("/")
+@app.route('/')
 def index():
-    # data_db = mongo.db.output_dict.find_one()
-    renderOut = list(mongo.db.collection.find_one())
+    output_dict = mongo.db.output_dict.find_one()
+    # renderOut = list(mongo.db.collection.find_one())
     # print(data_db)
-    print(renderOut)
-    return render_template('index.html', renVars=renderOut)
+    landImage = "static/mission_to_mars.png"
+    return render_template('index.html', output_dict=output_dict)
 
 @app.route("/scrape")
 def scrape():
-    
-    db = mongo.mars_db
-    listings = mongo.db.listings
-
-    output_dict = scrape_mars.scrape()
-    mongo.db.collection.update({}, output_dict, upsert=True)
-
+    output_dict = mongo.db.output_dict
+    data1 = scrape_mars.scrape()
+    output_dict.update(
+        {},
+        data1, 
+        upsert=True
+    )
     return redirect("/", code=302)
-
-    # for row in listings_data:
-    #     listings.update({'headline' : row['headline']}, row, upsert=True)
-# Verify results:
-# results = db.fruits_db.find()
-# for result in results:
-#     print(result)
-
 
 
 if __name__ == "__main__":

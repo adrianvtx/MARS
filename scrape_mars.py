@@ -7,34 +7,12 @@ import os
 import time
 
 import pandas as pd
-# Dependencies
-from bs4 import BeautifulSoup as bs
+
+from bson import ObjectId  # For ObjectId to work
+from decorator import append
 from splinter import Browser
 from splinter.exceptions import ElementDoesNotExist
-from bson import ObjectId  # For ObjectId to work
-
-
-output_dict = {}
-
-
-# URL of page to be scraped
-# url = 'https://mars.nasa.gov/news/'
-
-# Retrieve page with the requests module
-# response = requests.get(url)
-
-
-# # Match response to html_string template variable
-
-# html_string = response
-
-
-# # Parse html_string with bs
-
-# Create BeautifulSoup object; parse with 'html.parser'
-# html_string = bs(response.text, 'html.parser')
-# print(html_string)
-
+from bs4 import BeautifulSoup as bs
 
 def init_browser():
     executable_path = {'executable_path': 'chromedriver.exe'}
@@ -46,6 +24,9 @@ def init_browser():
 def scrape():
     browser = init_browser()
 
+    output_dict = {}
+
+
     url = 'https://mars.nasa.gov/news/'
     browser.visit(url)
 
@@ -54,19 +35,22 @@ def scrape():
     html = browser.html
     soup = bs(html, 'html.parser')
 
-    nasa_t = soup.find("div", class_="content_title").text
-    # *****Paragraph Text??**********
-    nasa_p = soup.find("div", class_="article_teaser_body").text
+  
+    nasa_t = getattr(soup.find("div", class_="content_title"), 'text', None)
+    nasa_p = getattr(soup.find("div", class_="article_teaser_body"), 'text',None)
+
+
+    # nasa_t = soup.find("div", class_="content_title").text
+    # # *****Paragraph Text??**********
+    # nasa_p = soup.find("div", class_="article_teaser_body").text
 
     browser.quit()
 
     # print(nasa_t)
     # print(nasa_p)
+    output_dict["nasa_t"] = nasa_t
+    output_dict["nasa_p"] = nasa_p
 
-    # Store data in a dictionary
-    output_dict = {
-        "nasa_t": nasa_t,
-        "nasa_p": nasa_p}
 
     # **********************************************
     url = 'https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars'
@@ -86,11 +70,8 @@ def scrape():
     img_url = soup.find("a", class_='button fancybox')["data-fancybox-href"]
     featured_image_url = main_url + img_url
 
-    # print(featured_image_url)
+    output_dict["featured_image_url"] = featured_image_url
     browser.quit()
-
-    output_dict = {
-        "featured_image_url": featured_image_url}
 
     # ***************************************
     # def scrape():
@@ -100,13 +81,10 @@ def scrape():
 
     browser = init_browser()
 
-    # executable_path = {'executable_path': 'chromedriver.exe'}
-    # browser = Browser('chrome', **executable_path, headless=False)
-
     twitter_url = 'https://twitter.com/marswxreport?lang=en'
     browser.visit(twitter_url)
 
-    time.sleep(1)
+    time.sleep(2)
 
     html = browser.html
     soup = bs(html, 'html.parser')
@@ -115,9 +93,8 @@ def scrape():
         'p', class_='TweetTextSize TweetTextSize--normal js-tweet-text tweet-text').text
 
     # print(mars_weather)
+    output_dict["mars_weather"] = mars_weather
     browser.quit()
-    output_dict = {
-        "mars_weather": mars_weather}
 
     # *************************************************************
 
@@ -127,17 +104,18 @@ def scrape():
     mars_df = mars_table[1]
     mars_df.columns = ['Mars Planet Profile', '']
     mars_df.set_index('Mars Planet Profile', inplace=True)
-
+    time.sleep(1)
+    
+    mars_df = mars_df.replace('\n', '')
+    time.sleep(1)
     mars_html_table = mars_df.to_html()
-    mars_html_table = mars_html_table.replace('\n', '')
 
     # print(mars_df)
     # print('-------------------------------------------------------------------------------------------------------------------')
     # pprint(mars_html_table)
 
-    output_dict = {
-        # "mars_df": mars_df,
-        "mars_html_table": mars_html_table}
+    output_dict["mars_df"] =  mars_df
+    output_dict["mars_html_table"] = mars_html_table
 
     browser.quit()
 
@@ -166,33 +144,20 @@ def scrape():
         hemi = img.find('h3').text
         i_url = img.find('img', class_='thumb')['src']
         img_url = stock_url + i_url
+        time.sleep(1)
         hemisphere_image_urls.append({"title": hemi, "img_url": img_url})
+        time.sleep(1)
+    output_dict["hemisphere_image_urls"] = hemisphere_image_urls
+    # output_dict["report"] = build_report(hemisphere_image_urls)
 
     browser.quit()
 
-    # hemisphere_image_urls
-
-    # hemisphere_image_urls = [
-    #     {"title": "Valles Marineris Hemisphere", "img_url": "..."},
-    #     {"title": "Cerberus Hemisphere", "img_url": "..."},
-    #     {"title": "Schiaparelli Hemisphere", "img_url": "..."},
-    #     {"title": "Syrtis Major Hemisphere", "img_url": "..."},
-    # ]
-
-    output_dict = {
-        "nasa_t": nasa_t,
-        "nasa_p": nasa_p,
-        "featured_image_url": featured_image_url,
-        "mars_weather": mars_weather,
-        "mars_df": mars_df,
-        "mars_html_table": mars_html_table,
-        "hemisphere_image_urls": hemisphere_image_urls
-        }
-
-    browser.quit()
-
-    # output_dict = {
-    #     "hemisphere_image_urls": hemisphere_image_urls}
-
-    # Return results
     return output_dict
+
+# helper function to build surf report
+# def build_report(hemisphere_image_urls):
+#     final_report = ""
+#     for p in hemisphere_image_urls:
+#         final_report += " " + p.get_text()
+#         print(final_report)
+#     return final_report

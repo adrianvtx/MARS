@@ -7,33 +7,29 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>MARS ATTACKS</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
   <div class="container">
-
     <div class="jumbotron text-center">
-      <h1>Scaper NO SCRAPING</h1>
-      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">SCRAPE THAT HOMEWORK</a></p>
+      <h1>SCRAPER WILL SCRAPE SCRAP</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">SCRAPE THAT NASA</a></p>
       <p><a class="btn btn-primary btn-lg" href="/" role="button">INDEX</a></p>
 
     </div>
-
-    {% for renVar in renVars %}
-    <div class="row" id="output_dict">
-      <div class="col-md-12">
-        <h4 class="heading">{{renVar[0]}} {{renVar}}</h4>
-        <small>{{renVar}}</small>
+    <!-- Mars data -->
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <img src="static/mission_to_mars.png" width: 50% />
+        <h3>Mission To Mars</h3>
+        <p>{{ output_dict }}</p>
       </div>
     </div>
-    {% endfor %}
-
-    <!-- Loop through the dictionary -->
-    
-    {% for renVar in renVars %}
-    <li style="color:blue">{{ loop.index }} {{ <renVars class="all"></renVars> }} THIS IS THE END OF THAT </li>
-    {% endfor %}
+    </div>
+  
+    <!-- {% for renVar in renVars %} -->
+      <li style="color:red"> {{ output_dict.jumbotron }} THIS IS THE END OF THAT </li>
+    <!-- {% endfor %} -->
   </div>
 </body>
 
