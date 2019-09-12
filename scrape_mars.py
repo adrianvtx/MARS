@@ -11,6 +11,8 @@ import pandas as pd
 from bs4 import BeautifulSoup as bs
 from splinter import Browser
 from splinter.exceptions import ElementDoesNotExist
+from bson import ObjectId  # For ObjectId to work
+
 
 output_dict = {}
 
@@ -37,6 +39,8 @@ output_dict = {}
 def init_browser():
     executable_path = {'executable_path': 'chromedriver.exe'}
     browser = Browser('chrome', **executable_path, headless=False)
+    return  browser
+
 
 
 def scrape():
@@ -175,20 +179,20 @@ def scrape():
     #     {"title": "Syrtis Major Hemisphere", "img_url": "..."},
     # ]
 
-    # mars_db = {
-    #     "nasaTitle": nasa_t,
-    #     "nasaPgph": nasa_p,
-    #     "featureImage": featured_image_url,
-    #     "marsWeath": mars_weather,
-    #     "marsInfo": mars_df,
-    #     "marsTable": mars_html_table,
-    #     "imageList": hemisphere_image_urls
-    #     }
+    output_dict = {
+        "nasa_t": nasa_t,
+        "nasa_p": nasa_p,
+        "featured_image_url": featured_image_url,
+        "mars_weather": mars_weather,
+        "mars_df": mars_df,
+        "mars_html_table": mars_html_table,
+        "hemisphere_image_urls": hemisphere_image_urls
+        }
 
     browser.quit()
 
-    output_dict = {
-        "hemisphere_image_urls": hemisphere_image_urls}
+    # output_dict = {
+    #     "hemisphere_image_urls": hemisphere_image_urls}
 
     # Return results
     return output_dict

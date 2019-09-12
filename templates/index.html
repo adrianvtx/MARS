@@ -16,14 +16,15 @@
     <div class="jumbotron text-center">
       <h1>Scaper NO SCRAPING</h1>
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">SCRAPE THAT HOMEWORK</a></p>
+      <p><a class="btn btn-primary btn-lg" href="/" role="button">INDEX</a></p>
+
     </div>
 
-    <!-- Craigslist Listings -->
     {% for renVar in renVars %}
     <div class="row" id="output_dict">
       <div class="col-md-12">
-        <h4 class="heading">{{renVar[0]}} {{renVar.headline}}</h4>
-        <small>{{renVar.hood}}</small>
+        <h4 class="heading">{{renVar[0]}} {{renVar}}</h4>
+        <small>{{renVar}}</small>
       </div>
     </div>
     {% endfor %}
@@ -31,7 +32,7 @@
     <!-- Loop through the dictionary -->
     
     {% for renVar in renVars %}
-    <li style="color:blue">{{loop.index}} {{ renVars.name }} who is a {{ renVars.type }}</li>
+    <li style="color:blue">{{ loop.index }} {{ <renVars class="all"></renVars> }} THIS IS THE END OF THAT </li>
     {% endfor %}
   </div>
 </body>
