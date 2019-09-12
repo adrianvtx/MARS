@@ -112,7 +112,7 @@ def scrape():
     # print('-------------------------------------------------------------------------------------------------------------------')
     # pprint(mars_html_table)
 
-    output_dict["mars_df"] =  mars_df
+    # output_dict["mars_df"] =  mars_df
     output_dict["html_table"] = m_html_t
 
     browser.quit()
