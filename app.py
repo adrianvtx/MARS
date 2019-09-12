@@ -2,13 +2,15 @@ import os
 import string
 import sys
 
+import html5lib
+import html5lib.html5parser
 import pymongo
 import pymongo.mongo_client
 from bson import ObjectId  # For ObjectId to work
 from eve.io.mongo.flask_pymongo import PyMongo
 from flask import Flask, redirect, render_template, request, url_for
 from flask_pymongo import PyMongo
-from matplotlib.patheffects import PathEffectRenderer
+from prettytable import from_html
 from pymongo import MongoClient
 from pymongo.collection import Collection
 from werkzeug.debug.tbtools import render_console_html
@@ -26,6 +28,7 @@ mongo = PyMongo(app, uri="mongodb://localhost:27017/mars_db")
 # collection = db.scrape
 output_dict = {}
 output_dict["collection"] = "Please Press Scrape"
+
 
 @app.route('/')
 def index():

@@ -33,7 +33,7 @@ def scrape():
     # time.sleep(1)
 
     html = browser.html
-    soup = bs(html, 'html.parser')
+    soup = bs(html, 'lxml')
 
   
     nasa_t = getattr(soup.find("div", class_="content_title"), 'text', None)
@@ -100,22 +100,20 @@ def scrape():
 
     table_url = 'https://space-facts.com/mars/'
     mars_table = pd.read_html(table_url)
-
+    time.sleep(3)
     mars_df = mars_table[1]
-    mars_df.columns = ['Mars Planet Profile', '']
-    mars_df.set_index('Mars Planet Profile', inplace=True)
-    time.sleep(1)
-    
-    mars_df = mars_df.replace('\n', '')
-    time.sleep(1)
-    mars_html_table = mars_df.to_html()
+    mars_df.columns = ['Mars_Planet_Profile', 'ignore this']
+    mars_df.set_index('Mars_Planet_Profile', inplace=True)
+    time.sleep(3)
+    m_html_t = mars_df.to_html()
+    time.sleep(3)
 
     # print(mars_df)
     # print('-------------------------------------------------------------------------------------------------------------------')
     # pprint(mars_html_table)
 
     output_dict["mars_df"] =  mars_df
-    output_dict["mars_html_table"] = mars_html_table
+    output_dict["html_table"] = m_html_t
 
     browser.quit()
 
@@ -134,7 +132,7 @@ def scrape():
     time.sleep(1)
 
     html = browser.html
-    soup = bs(html, 'html.parser')
+    soup = bs(html, 'html5', )
 
     stock_url = 'https://astrogeology.usgs.gov'
     img_links = soup.find_all('div', class_="item")
