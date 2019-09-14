@@ -1,37 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>MARS ATTACKS</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/styles.min.css">
 </head>
 
-<body>
-  <div class="container">
-    <div class="jumbotron text-center">
-      <h1>SCRAPER WILL SCRAPE SCRAP</h1>
-      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">SCRAPE THAT NASA</a></p>
-      <p><a class="btn btn-primary btn-lg" href="/" role="button">INDEX</a></p>
-
+<body class="text-secondary">
+    <!-- Start: Highlight Blue -->
+    <div class="highlight-blue" style="background-color: rgb(255,255,255);background-image: url(&quot;assets/img/mission_to_mars.png&quot;);background-position: center;background-size: contain;color: rgb(195,18,28);font-size: 48px;filter: blur(0px) saturate(94%);">
+        <div class="container">
+            <!-- Start: Intro -->
+            <div class="intro">
+                <h2 class="text-center">Mission to Mars</h2>
+                <p class="text-center">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. </p>
+            </div>
+            <!-- End: Intro -->
+            <!-- Start: Buttons -->
+            <div class="buttons"><a class="btn btn-outline-secondary active btn-lg" role="button" href="#">SCRAPE</a></div>
+            <!-- End: Buttons -->
+        </div>
     </div>
-    <!-- Mars data -->
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2">
-        <img src="static/mission_to_mars.png" width: 50% />
-        <h3>Mission To Mars</h3>
-        <p>{{ output_dict }}</p>
-      </div>
+    <!-- End: Highlight Blue -->
+    <!-- Start: Projects Clean -->
+    <div class="projects-clean">
+        <div class="container">
+            <!-- Start: Intro -->
+            <div class="intro"></div>
+            <!-- End: Intro -->
+            <!-- Start: Projects -->
+            <div class="row projects">
+                <div class="col-sm-6 col-lg-4 item">
+                    <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, interdum justo suscipit id.</p><img class="img-fluid" src="assets/img/desk.jpg">
+                    <h3 class="name">Project Name</h3>
+                </div>
+                <div class="col-sm-6 col-lg-4 item">
+                    <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, interdum justo suscipit id.</p><img class="img-fluid" src="assets/img/building.jpg">
+                    <h3 class="name">Project Name</h3>
+                </div>
+                <div class="col-sm-6 col-lg-4 item">
+                    <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, interdum justo suscipit id.</p><img class="img-fluid" src="assets/img/loft.jpg">
+                    <h3 class="name">Project Name</h3>
+                </div>
+                <div class="col-sm-6 col-lg-4 item">
+                    <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, interdum justo suscipit id.</p><img class="img-fluid" src="assets/img/minibus.jpeg">
+                    <h3 class="name">Project Name</h3>
+                </div>
+            </div>
+            <!-- End: Projects -->
+        </div>
     </div>
-    </div>
-  
-    <!-- {% for renVar in renVars %} -->
-      <li style="color:red"> {{ output_dict.jumbotron }} THIS IS THE END OF THAT </li>
-    <!-- {% endfor %} -->
-  </div>
+    <!-- End: Projects Clean -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
-

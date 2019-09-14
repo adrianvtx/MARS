@@ -146,6 +146,11 @@ def scrape():
         hemisphere_image_urls.append({"title": hemi, "img_url": img_url})
         time.sleep(1)
     output_dict["hemisphere_image_urls"] = hemisphere_image_urls
+    output_dict["hemi"] = hemi
+    output_dict["img_url"] = img_url
+    
+    
+    
     # output_dict["report"] = build_report(hemisphere_image_urls)
 
     browser.quit()
