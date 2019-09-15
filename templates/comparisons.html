@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>latitudes</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/Pretty-Product-List.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-md d-lg-flex align-items-end justify-content-lg-end">
+        <div class="container-fluid"><a class="navbar-brand" href="index.html">Latitude</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse align-items-end"
+                id="navcol-1">
+                <ul class="nav navbar-nav text-monospace ml-auto">
+                    <li class="nav-item" role="presentation"></li>
+                    <li class="nav-item dropdown"><a class="dropdown-toggle nav-link active" data-toggle="dropdown" aria-expanded="false" href="#">Plots</a>
+                        <div class="dropdown-menu" role="menu"><a class="dropdown-item" role="presentation" href="Max%20Temp.html">Maximum Temperature</a><a class="dropdown-item" role="presentation" href="humidity.html">Humidity</a><a class="dropdown-item" role="presentation" href="cloudiness.html">Cloudiness</a>
+                            <a
+                                class="dropdown-item" role="presentation" href="windspeed.html">Wind Speed</a>
+                        </div>
+                    </li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="comparisons.html">Comparisons</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="data.html">Data</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="text-center border rounded" style="padding: 8;">
+        <h1>Comparison: Latitude vs X</h1>
+        <div class="card"></div>
+    </div>
+    <div>
+        <div class="container"><div class="row product-list">
+    <div class="col-sm-12 col-md-6 product-item">
+        <div class="product-container">
+            <div class="row">
+                <img class="card-img-top w-100 d-block" src={{output_dict.hemisphere_image_urls.0.img_url }}> />
+                <a href="Max%20Temp.html">Click here for Analysis</a>
+            </div>
+            <div class="row">
+                <div class="col-8">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-6">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-6 product-item">
+        <div class="product-container">
+            <div class="row">
+            <img class="card-img-top w-100 d-block" src={{output_dict.hemisphere_image_urls.1.img_url }}> />    
+                <a href="humidity.html">Click here for Analysis</a></div>
+            <div class="row">
+                
+            </div>
+        <div class="row">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-6">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-6 product-item">
+        <div class="product-container">
+            <div class="row">
+                <img class="card-img-top w-100 d-block" src={{output_dict.hemisphere_image_urls.2.img_url }}>/> <a href="cloudiness.html">Click here for Analysis</a></div>            <div class="row">
+            </div>            
+        </div>
+    </div>
+    <div class="col-sm-12 col-md-6 product-item">
+        <div class="product-container">
+            <div class="row">
+                <img class="card-img-top w-100 d-block" src={{output_dict.hemisphere_image_urls.3.img_url }}>/> <a href="windspeed.html">Click here for Analysis</a>
+            </div>            
+        </div>
+    </div>
+</div>
+</div>
+    </div>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

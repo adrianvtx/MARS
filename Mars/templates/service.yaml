@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "Mars.fullname" . }}
+  labels:
+    app: {{ template "Mars.name" . }}
+    chart: {{ template "Mars.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    app: {{ template "Mars.name" . }}
+    release: {{ .Release.Name }}

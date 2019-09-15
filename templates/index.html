@@ -1,80 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- <meta http-equiv="X-UA-Compatible" content="ie=edge"> -->
     <title>index.html</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/styles.min.css">
+    <link rel="stylesheet" href="static/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/Highlight-Blue.css">
+    <link rel="stylesheet" href="static/css/Projects-Clean.css">
+    <link rel="stylesheet" href="static/css/styles.css">
+    <link rel="stylesheet" href="static/css/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/styles.min.css">
+    <link rel="stylesheet" href="static/css/styles.css">
+    <link rel="stylesheet" href="static/css/Pretty-Product-List.css">
+    <link rel="stylesheet" href="static/bootstrap/js/bootstrap.min.js">
 </head>
-
-<body>
     <!-- Start: Highlight Blue -->
-        <div class="highlight-blue"
-            style=background-color:rgb(255,255,255);background-image:url(mission_to_mars.png);background-position:center;background-size:contain;color:rgb(195,18,28);font-size:48px;filter:blur(0px)saturate(94%);>
+    <body class="text-secondary">
+        <div class= "highlight-blue">
+            <div style= "background-color: rgb(255,255,255); 
+            background-image: url('mission_to_mars.png') ; background-position: center; background-size: contain; color: rgb(195,18,28); font-size: 48px">
             <div class="container">
-                <div class="intro">
-                    <h2 class="text-center">Mission to Mars</h2>
-                    <p class="text-center">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat,
-                        pellentesque ut laoreet vitae. </p>
-                </div>
-                <div class="buttons"><a class="btn btn-outline-secondary active btn-lg" role="button" href="/scrape">SCRAPE</a></div>
+            <div class="intro">
+            <h1 class="text-center">Mission to Mars</h1>
+            <p class="text-center">Please click the UPDATE button to retrieve the most current data for this page.</p>
+        <div class="buttons"><a class="btn btn-outline-secondary active btn-lg" role="button" href="/scrape">UPDATE</a></div>
+    </div>
+    </div>
+
+<div>
+            <div class="row">
+            <div class="col"></div>
+            <div class="col-md-12"></div>
             </div>
         </div>
-<!-- <div class="container">2
-    <div class="jumbotron" style="opacity: 0.1;">
-        <h1>Latest Mars News</h1>
-        <p>{{ output_dict.nasa_t }}</p>
-        <p>{{ output_dict.nasa_p }}</p>
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">{{ output_dict.nasa_t }}</h2>
+                    <p class="card-text">{{ output_dict.nasa_p }}</p></a><a
+                <div class="row">
+                    <div class="col-md-8">
+                       <h3>Featured Mars Image</h3>
+                         <img src="{{output_dict.featured_image_url}}" alt="Mars Image">
+                       </div>
+                    <div class="col-md-4">
+                                <h4>Current Weather on Mars</h4>
+                                <p>{{ output_dict.mars_weather }}</p>
+                                <br>
+                                <h4>Mars Facts</h4>
+                                <p>{{ output_dict.html_table | safe }}</p>
+                            </div>
+                            </div>
 
-    </<div>>
-</<div>>
-            <div class="buttons">
-                <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Click to Update Data</a></p>
-            </div>      
-        <h2 class="text-center">Mission to Mars</h2>
-                <p class="text-center">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. </p>
-            </div>
-            <!-- End: Intro -->
-            <!-- Start: Buttons -->
-            <!-- End: Buttons -->
-    </div> -->
-    <!-- End: Highlight Blue -->
-    <!-- Start: Projects Clean -->
+
     <div class="projects-clean">
         <div class="container">
-            <!-- Start: Intro -->
             <div class="intro"></div>
-            <!-- End: Intro -->
-            <!-- Start: Projects -->
-            <div class="row projects">
-                <div class="col-sm-6 col-lg-4 item">
-                    <h3 class="name">Latest Mars News</h3>
-                        <p> {{ output_dict.nasa_t }} </p>
-                        <p> {{ output_dict.nasa_p }} </p>
-                </div>
-                <div class="col-sm-6 col-lg-4 item">
-                    <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, interdum justo suscipit id.</p><img class="img-fluid" src="assets/img/building.jpg">
-                    <h3 class="name">Project Name</h3>
-                </div>
-                <div class="col-sm-6 col-lg-4 item">
-                    <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, interdum justo suscipit id.</p><img class="img-fluid" src="assets/img/loft.jpg">
-                    <h3 class="name">Project Name</h3>
-                </div>
-                <div class="col-sm-6 col-lg-4 item">
-                    <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, interdum justo suscipit id.</p><img class="img-fluid" src="assets/img/minibus.jpeg">
-                    <h3 class="name">Project Name</h3>
-                </div>
+            <div class="embed-responsive embed-responsive-16by9"><iframe class="embed-responsive-item"></iframe></div>
+            <h3 class="name">MARS HEMISPHERES</h3>
+            <div class="row projects"></div>
+            <div class="col-sm-6 col-lg-4 item">
+                <h2 class="name">{{ output_dict.hemisphere_image_urls.0.title }}</h2>
+                <img class="img-fluid" src={{ output_dict.hemisphere_image_urls.0.img_url }}>
             </div>
-            <!-- End: Projects -->
+            <div class="col-sm-6 col-lg-4 item">
+                <h2 class="name">{{ output_dict.hemisphere_image_urls.1.title }}</h2>
+                <img class="img-fluid" src={{ output_dict.hemisphere_image_urls.1.img_url }}>
+            </div>
         </div>
     </div>
+    </div>
+    <div class="container">
+        <div class="row projects">
+        </div>
+        <div class="col-sm-6 col-lg-4 item">
+            <h2 class="name">{{ output_dict.hemisphere_image_urls.2.title }}</h2>
+            <img class="img-fluid" src={{ output_dict.hemisphere_image_urls.2.img_url }}>
+        </div>
+        <div class="col-sm-6 col-lg-4 item">
+            <h2 class="name">{{ output_dict.hemisphere_image_urls.3.title }}</h2>
+            <img class="img-fluid" src={{ output_dict.hemisphere_image_urls.3.img_url }}>
+        </div>
+    </div>
+    <!-- End: Projects -->
+    </div>
     <!-- End: Projects Clean -->
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/bootstrap/js/bootstrap.min.js"></script>
 </body>
 
 </html>
