@@ -132,7 +132,7 @@ def scrape():
     time.sleep(1)
 
     html = browser.html
-    soup = bs(html, 'html5', )
+    soup = bs(html, 'html5lib')
 
     stock_url = 'https://astrogeology.usgs.gov'
     img_links = soup.find_all('div', class_="item")

@@ -1,29 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Untitled</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>index.html</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/styles.min.css">
 </head>
 
-<body class="text-secondary">
+<body>
     <!-- Start: Highlight Blue -->
-    <div class="highlight-blue" style="background-color: rgb(255,255,255);background-image: url(&quot;assets/img/mission_to_mars.png&quot;);background-position: center;background-size: contain;color: rgb(195,18,28);font-size: 48px;filter: blur(0px) saturate(94%);">
-        <div class="container">
-            <!-- Start: Intro -->
-            <div class="intro">
-                <h2 class="text-center">Mission to Mars</h2>
+        <div class="highlight-blue"
+            style=background-color:rgb(255,255,255);background-image:url(mission_to_mars.png);background-position:center;background-size:contain;color:rgb(195,18,28);font-size:48px;filter:blur(0px)saturate(94%);>
+            <div class="container">
+                <div class="intro">
+                    <h2 class="text-center">Mission to Mars</h2>
+                    <p class="text-center">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat,
+                        pellentesque ut laoreet vitae. </p>
+                </div>
+                <div class="buttons"><a class="btn btn-outline-secondary active btn-lg" role="button" href="/scrape">SCRAPE</a></div>
+            </div>
+        </div>
+<!-- <div class="container">2
+    <div class="jumbotron" style="opacity: 0.1;">
+        <h1>Latest Mars News</h1>
+        <p>{{ output_dict.nasa_t }}</p>
+        <p>{{ output_dict.nasa_p }}</p>
+
+    </<div>>
+</<div>>
+            <div class="buttons">
+                <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Click to Update Data</a></p>
+            </div>      
+        <h2 class="text-center">Mission to Mars</h2>
                 <p class="text-center">Nunc luctus in metus eget fringilla. Aliquam sed justo ligula. Vestibulum nibh erat, pellentesque ut laoreet vitae. </p>
             </div>
             <!-- End: Intro -->
             <!-- Start: Buttons -->
-            <div class="buttons"><a class="btn btn-outline-secondary active btn-lg" role="button" href="#">SCRAPE</a></div>
             <!-- End: Buttons -->
-        </div>
-    </div>
+    </div> -->
     <!-- End: Highlight Blue -->
     <!-- Start: Projects Clean -->
     <div class="projects-clean">
@@ -34,8 +52,9 @@
             <!-- Start: Projects -->
             <div class="row projects">
                 <div class="col-sm-6 col-lg-4 item">
-                    <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, interdum justo suscipit id.</p><img class="img-fluid" src="assets/img/desk.jpg">
-                    <h3 class="name">Project Name</h3>
+                    <h3 class="name">Latest Mars News</h3>
+                        <p> {{ output_dict.nasa_t }} </p>
+                        <p> {{ output_dict.nasa_p }} </p>
                 </div>
                 <div class="col-sm-6 col-lg-4 item">
                     <p class="description">Aenean tortor est, vulputate quis leo in, vehicula rhoncus lacus. Praesent aliquam in tellus eu gravida. Aliquam varius finibus est, interdum justo suscipit id.</p><img class="img-fluid" src="assets/img/building.jpg">
